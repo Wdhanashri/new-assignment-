@@ -1,0 +1,86 @@
+
+class ArithmeticOperations {
+   
+    public int add(int a, int b) {
+        return a + b;
+    }
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+
+   
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
+  
+    public int divide(int a, int b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            System.out.println("Division by zero is not allowed!");
+            return 0;
+        }
+    }
+}
+
+
+class BitwiseOperations {
+    public int and(int a, int b) {
+        return a & b;
+    }
+
+    public int or(int a, int b) {
+        return a | b;
+    }
+
+    
+    public int xor(int a, int b) {
+        return a ^ b;
+    }
+
+   
+    public int not(int a) {
+        return ~a;
+    }
+
+   
+    public int leftShift(int a, int shiftBy) {
+        return a << shiftBy;
+    }
+
+   
+    public int rightShift(int a, int shiftBy) {
+        return a >> shiftBy;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+      
+        ArithmeticOperations arithmetic = new ArithmeticOperations();
+
+       
+        BitwiseOperations bitwise = new BitwiseOperations();
+
+        int a = 10;
+        int b = 5;
+
+      
+        System.out.println("Arithmetic Operations:");
+        System.out.println(a + " + " + b + " = " + arithmetic.add(a, b));
+        System.out.println(a + " - " + b + " = " + arithmetic.subtract(a, b));
+        System.out.println(a + " * " + b + " = " + arithmetic.multiply(a, b));
+        System.out.println(a + " / " + b + " = " + arithmetic.divide(a, b));
+
+      
+        System.out.println("\nBitwise Operations:");
+        System.out.println(a + " & " + b + " = " + bitwise.and(a, b));
+        System.out.println(a + " | " + b + " = " + bitwise.or(a, b));
+        System.out.println(a + " ^ " + b + " = " + bitwise.xor(a, b));
+        System.out.println("~" + a + " = " + bitwise.not(a));
+        System.out.println(a + " << 1 = " + bitwise.leftShift(a, 1));
+        System.out.println(a + " >> 1 = " + bitwise.rightShift(a, 1));
+    }
+}
