@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Productivity Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        input, textarea, button { width: 100%; padding: 8px; margin: 8px 0; border-radius: 4px; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .result { display: none; margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student Productivity Form</h2>
+        <form id="studentForm">
+            <input type="text" id="name" placeholder="Student Name" required>
+            <input type="text" id="class" placeholder="Class" required>
+            <input type="number" id="productiveHours" placeholder="Productive Hours" required>
+            <textarea id="comments" placeholder="Additional Comments"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result" class="result">
+            <h3>Submitted Information:</h3>
+            <p id="resultText"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('studentForm').onsubmit = function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const studentClass = document.getElementById('class').value;
+            const productiveHours = document.getElementById('productiveHours').value;
+            const comments = document.getElementById('comments').value;
+            document.getElementById('resultText').innerHTML = `
+                Student Name: ${name}<br>
+                Class: ${studentClass}<br>
+                Productive Hours: ${productiveHours}<br>
+                Comments: ${comments || 'No additional comments.'}
+            `;
+            document.getElementById('result').style.display = 'block';
+            this.reset();
+        };
+    </script>
+
+</body>
+</html>
